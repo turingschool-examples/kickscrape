@@ -1,4 +1,5 @@
 var Nightmare = require('nightmare');
+var prettyjson = require('prettyjson');
 
 Nightmare()
   .goto('https://www.kickstarter.com/projects/728836843/codrone-learn-to-code-with-programmable-drone/description')
@@ -13,6 +14,6 @@ Nightmare()
     };
   })
   .then(function(result) {
-      console.log(result);
+      console.log(prettyjson.render(data));
     })
   .end()

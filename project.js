@@ -14,6 +14,6 @@ Nightmare()
     };
   })
   .then(function(result) {
-      console.log(prettyjson.render(data));
+      console.log(prettyjson.render(result));
     })
   .end()

@@ -8,6 +8,8 @@ Nightmare()
   .evaluate(extractData)
   .then(function(result) {
       console.log(prettyjson.render(result));
+    }, function(err){
+      console.log(err);
     })
   .end()
 
@@ -16,12 +18,10 @@ function extractData (){
   pledged = $('#pledged').data('pledged');
   goal = $('#pledged').data('goal');
 
-  rewards = [];
-
-  rewards = $.map($('.js-project-rewards li'), function(i, $reward){
+  rewards = $.map($('.js-project-rewards li'), function(reward){
     return {
-      pledge: $reward.find(".pledge__currency-conversion").text(),
-      description: $reward.find(".pledge__reward-description pledge__reward-description--expanded").text()
+      pledge: $(reward).find(".pledge__currency-conversion").text().match(/\d+/)[0],
+      description: $(reward).find(".pledge__reward-description").text().trim()
     }
   })
   

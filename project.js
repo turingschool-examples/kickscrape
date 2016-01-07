@@ -20,7 +20,7 @@ function extractData (){
 
   rewards = $.map($('.js-project-rewards li'), function(reward){
     return {
-      pledge: $(reward).find(".pledge__currency-conversion").text().trim(),
+      pledge: $(reward).find(".pledge__currency-conversion").text().match(/\d+/)[0],
       description: $(reward).find(".pledge__reward-description").text().trim()
     }
   })

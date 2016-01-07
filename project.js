@@ -18,13 +18,11 @@ function extractData (){
 
   rewards = [];
 
-  $('.js-project-rewards li').each(function(i, $reward){
-    
-    reward_data = {
+  rewards = $.map($('.js-project-rewards li'), function(i, $reward){
+    return {
       pledge: $reward.find(".pledge__currency-conversion").text(),
       description: $reward.find(".pledge__reward-description pledge__reward-description--expanded").text()
     }
-    rewards.push(reward_data);
   })
   
   return {

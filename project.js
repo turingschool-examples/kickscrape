@@ -15,5 +15,7 @@ Nightmare()
   })
   .then(function(result) {
       console.log(prettyjson.render(result));
+    }, function(err){
+      console.log(err);
     })
   .end()

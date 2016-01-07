@@ -7,5 +7,7 @@ Nightmare()
   })
   .then(function(result) {
       console.log(result);
+    }, function(err){
+      console.log(err);
     })
   .end()

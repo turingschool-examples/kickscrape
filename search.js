@@ -6,15 +6,14 @@ Nightmare()
   .wait('.project a')
   .evaluate(extractData)
   .then(function(result) {
-      console.log(prettyjson.render(result));
+      console.log(result);
     }, function(err){
     console.log(err);
   })
   .end()
 
 function extractData() {
-  console.log($('.project a:first'));
-  // return $.map($('.project a:first'), function($a){
-  //   return $a.attr('href');
-  // })
+  return $.map($('.project'), function(project){
+    return $(project).find('a:first').attr('href');
+  })
 }
